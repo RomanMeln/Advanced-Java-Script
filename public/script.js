@@ -12,9 +12,10 @@ new Vue({
     },
     onAddToCart(id){
       const product = this.showcase.find((good) => good.id == id)
+
       fetch(`${API_URL}/cart`, {
         method: 'POST',
-        headers: {"Contetns-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(product)
       })
         .then(() => {
@@ -23,9 +24,10 @@ new Vue({
     },
     onRemoveFromCart(id){
       const product_id = this.cart.findIndex((good) => good.id == id)
+    
       fetch(`${API_URL}/cart`, {
         method: 'DELETE',
-        headers: {"Contetns-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(this.cart[product_id])
       })
         .then(() => {

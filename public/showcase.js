@@ -6,7 +6,7 @@ Vue.component('showcase',
             </div>
         `,
         props: ['list'],
-        method: {
+        methods: {
             onAdd(id){
                 this.$emit('addtocart', id)
             }
