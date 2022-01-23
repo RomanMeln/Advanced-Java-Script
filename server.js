@@ -49,7 +49,7 @@ app.post('/api/v1/cart', (req, res) => {
 app.delete('/api/v1/cart', (req, res) => {
   fs.readFile(cart_path, 'utf-8', (err, data) => {
     if(!err) {
-      const cart = JSON.parse(data);
+      let cart = JSON.parse(data);
       const idx = cart.findIndex((good) => req.body.id === good.id)
       cart = cart.splice(idx, 1);
       fs.writeFile(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
