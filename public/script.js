@@ -24,7 +24,7 @@ new Vue({
     },
     onRemoveFromCart(id){
       const product_id = this.cart.findIndex((good) => good.id == id)
-     
+    
       fetch(`${API_URL}/cart`, {
         method: 'DELETE',
         headers: {"Content-Type": "application/json"},
